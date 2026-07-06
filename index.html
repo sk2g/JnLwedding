@@ -1,264 +1,184 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宗翰和以瑄 - 我們的婚禮活動</title>
-    <!-- 引入 Tailwind CSS 進行快速美化 -->
+    <title>J&L's Wedding 婚禮活動指南</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts 引入優雅字體 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    
     <style>
         body {
-            font-family: 'Noto Serif TC', serif;
+            /* 全局採用思源黑體，全面排除新細明體與微軟正黑體 */
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+            letter-spacing: 0.05em; /* 微調字距，手機閱讀更舒適 */
         }
         .font-serif-eng {
             font-family: 'Playfair Display', serif;
         }
+        /* 隱藏手機版滾動條但保持滾動功能 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 antialiased">
+<body class="bg-[#F9F8F6] text-[#333333] antialiased leading-relaxed">
 
-    <!-- Hero Banner / 首頁視覺 -->
-    <header class="relative h-screen flex flex-col justify-center items-center text-center bg-cover bg-center px-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('DSC00458.jpeg');">
-        <div class="text-white">
-            <h2 class="font-serif-eng italic text-3xl md:text-5xl mb-4 tracking-widest">Save the Date</h2>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-wide">宗翰 & 以瑄</h1>
-            <p class="text-xl md:text-2xl font-light tracking-widest">誠摯邀請您參與我們的幸福時刻</p>
-            <div class="mt-8 inline-block border border-white px-6 py-3 text-sm tracking-widest uppercase hover:bg-white hover:text-stone-900 transition duration-300">
-                2026 - 10 - 24
+    <header class="relative h-[92vh] flex flex-col justify-center items-center text-center bg-cover bg-center px-6" style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35)), url('DSC00458.jpeg');">
+        <div class="text-white z-10">
+            <h2 class="font-serif-eng italic text-2xl md:text-4xl mb-3 tracking-[0.2em] text-amber-100/90">Save the Date</h2>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-[0.15em] font-medium">宗翰 & 以瑄</h1>
+            <p class="text-base md:text-lg font-light tracking-[0.2em] text-stone-200">誠摯邀請您參與我們的幸福時刻</p>
+            <div class="mt-8 inline-block border border-white/60 backdrop-blur-sm bg-white/10 px-8 py-3 text-sm tracking-[0.2em] rounded-full font-medium">
+                2026 . 10 . 24
             </div>
         </div>
-        <!-- 倒數計時 -->
-        <div class="absolute bottom-12 bg-white/90 backdrop-blur-sm px-6 py-4 rounded-xl shadow-lg flex space-x-6 text-stone-800">
-            <div class="text-center"><span id="days" class="block text-2xl font-bold text-amber-700">00</span><span class="text-xs text-stone-500">天</span></div>
-            <div class="text-center"><span id="hours" class="block text-2xl font-bold text-amber-700">00</span><span class="text-xs text-stone-500">時</span></div>
-            <div class="text-center"><span id="minutes" class="block text-2xl font-bold text-amber-700">00</span><span class="text-xs text-stone-500">分</span></div>
-            <div class="text-center"><span id="seconds" class="block text-2xl font-bold text-amber-700">00</span><span class="text-xs text-stone-500">秒</span></div>
+        
+        <div class="absolute bottom-8 left-4 right-4 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex justify-around max-w-sm mx-auto border border-stone-100">
+            <div class="text-center w-16"><span id="days" class="block text-xl font-bold text-amber-800 font-serif-eng">00</span><span class="text-[10px] text-stone-400 font-medium tracking-wider">DAYS</span></div>
+            <div class="text-center w-16"><span id="hours" class="block text-xl font-bold text-amber-800 font-serif-eng">00</span><span class="text-[10px] text-stone-400 font-medium tracking-wider">HOURS</span></div>
+            <div class="text-center w-16"><span id="minutes" class="block text-xl font-bold text-amber-800 font-serif-eng">00</span><span class="text-[10px] text-stone-400 font-medium tracking-wider">MINS</span></div>
+            <div class="text-center w-16"><span id="seconds" class="block text-xl font-bold text-amber-800 font-serif-eng">00</span><span class="text-[10px] text-stone-400 font-medium tracking-wider">SECS</span></div>
         </div>
     </header>
 
-    <!-- 導覽列 -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-stone-200">
-        <div class="max-w-4xl mx-auto flex justify-around py-4 text-sm md:text-base font-medium">
-            <a href="#timeline" class="hover:text-amber-700 transition">活動時間</a>
-            <a href="#progress" class="hover:text-amber-700 transition">籌備進度</a>
-            <a href="#notices" class="hover:text-amber-700 transition">注意事項</a>
-            <a href="#gallery" class="hover:text-amber-700 transition">婚禮紀錄</a>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-stone-200/60">
+        <div class="max-w-md mx-auto flex justify-between px-2">
+            <a href="#timeline" class="flex-1 py-4 text-center text-sm font-medium text-stone-600 hover:text-amber-800 active:scale-95 transition">活動時間</a>
+            <a href="#progress" class="flex-1 py-4 text-center text-sm font-medium text-stone-600 hover:text-amber-800 active:scale-95 transition">籌備進度</a>
+            <a href="#notices" class="flex-1 py-4 text-center text-sm font-medium text-stone-600 hover:text-amber-800 active:scale-95 transition">注意事項</a>
+            <a href="#gallery" class="flex-1 py-4 text-center text-sm font-medium text-stone-600 hover:text-amber-800 active:scale-95 transition">婚禮紀錄</a>
         </div>
     </nav>
 
-    <!-- 內文區塊容器 -->
-    <main class="max-w-4xl mx-auto px-4 py-16 space-y-24">
+    <main class="max-w-md mx-auto px-5 py-12 space-y-16">
 
-        <!-- Section 1: 活動時間與流程 -->
-        <section id="timeline" class="scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-stone-950 relative inline-block pb-3">
-                    活動時間與流程
-                    <span class="absolute bottom-0 left-1/4 right-1/4 h-[2px] bg-amber-600/60"></span>
-                </h2>
-                <p class="text-stone-500 mt-2 text-sm">Wedding Day Timeline</p>
+        <section id="timeline" class="scroll-mt-16">
+            <div class="mb-8">
+                <span class="text-xs font-bold text-amber-700 tracking-widest uppercase block mb-1">Schedule</span>
+                <h2 class="text-2xl font-bold text-stone-900 tracking-wide">活動時間與流程</h2>
             </div>
             
-            <div class="relative border-l border-stone-300 ml-4 md:ml-32 space-y-8">
-                <!-- 流程項目 1 -->
-                <div class="relative pl-6">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow"></div>
-                    <div class="bg-white p-5 rounded-lg shadow-sm border border-stone-100">
-                        <span class="text-amber-700 font-bold font-serif-eng">11:30</span>
-                        <h3 class="text-lg font-bold mt-1">賓客簽到入席</h3>
-                        <p class="text-stone-600 text-sm mt-1">相簿與謝卡迎賓區開放，現場備有迎賓雞尾酒與輕食。</p>
+            <div class="space-y-4">
+                <div class="bg-white p-5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-stone-100 flex items-start space-x-4">
+                    <span class="text-lg font-bold text-amber-700 font-serif-eng pt-0.5">11:30</span>
+                    <div>
+                        <h3 class="font-bold text-stone-900 text-base">賓客簽到入席</h3>
+                        <p class="text-stone-500 text-sm mt-1 leading-relaxed font-light">相簿與謝卡迎賓區開放，現場備有迎賓雞尾酒與輕食點心。</p>
                     </div>
                 </div>
-                <!-- 流程項目 2 -->
-                <div class="relative pl-6">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow"></div>
-                    <div class="bg-white p-5 rounded-lg shadow-sm border border-stone-100">
-                        <span class="text-amber-700 font-bold font-serif-eng">12:18</span>
-                        <h3 class="text-lg font-bold mt-1">婚禮開場、新人進場</h3>
-                        <p class="text-stone-600 text-sm mt-1">伴郎伴娘進場、主婚人致詞、新人交換誓言與戒指儀式。</p>
+                <div class="bg-white p-5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-stone-100 flex items-start space-x-4">
+                    <span class="text-lg font-bold text-amber-700 font-serif-eng pt-0.5">12:18</span>
+                    <div>
+                        <h3 class="font-bold text-stone-900 text-base">婚禮開場、新人進場</h3>
+                        <p class="text-stone-500 text-sm mt-1 leading-relaxed font-light">伴郎伴娘進場、主婚人致詞、新人交換誓言與戒指儀式。</p>
                     </div>
                 </div>
-                <!-- 流程項目 3 -->
-                <div class="relative pl-6">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow"></div>
-                    <div class="bg-white p-5 rounded-lg shadow-sm border border-stone-100">
-                        <span class="text-amber-700 font-bold font-serif-eng">12:45</span>
-                        <h3 class="text-lg font-bold mt-1">婚宴正式開席</h3>
-                        <p class="text-stone-600 text-sm mt-1">精選佳餚上菜，播放成長與愛情故事 MV。</p>
-                    </div>
-                </div>
-                <!-- 流程項目 4 -->
-                <div class="relative pl-6">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow"></div>
-                    <div class="bg-white p-5 rounded-lg shadow-sm border border-stone-100">
-                        <span class="text-amber-700 font-bold font-serif-eng">14:30</span>
-                        <h3 class="text-lg font-bold mt-1">送客合影</h3>
-                        <p class="text-stone-600 text-sm mt-1">新人於主題背板前發送喜糖，與至親好友合影留念。</p>
+                <div class="bg-white p-5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-stone-100 flex items-start space-x-4">
+                    <span class="text-lg font-bold text-amber-700 font-serif-eng pt-0.5">12:45</span>
+                    <div>
+                        <h3 class="font-bold text-stone-900 text-base">婚宴正式開席</h3>
+                        <p class="text-stone-500 text-sm mt-1 leading-relaxed font-light">精選佳餚上菜，大螢幕將播放精心準備的成長與愛情故事 MV。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!-- Section 2: 籌備進度 (甘特圖/檢核表概念) -->
-        <section id="progress" class="scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-stone-950 relative inline-block pb-3">
-                    我們的籌備進度
-                    <span class="absolute bottom-0 left-1/4 right-1/4 h-[2px] bg-amber-600/60"></span>
-                </h2>
-                <p class="text-stone-500 mt-2 text-sm">Our Wedding Preparation</p>
+        <section id="progress" class="scroll-mt-16">
+            <div class="mb-8">
+                <span class="text-xs font-bold text-amber-700 tracking-widest uppercase block mb-1">Preparation</span>
+                <h2 class="text-2xl font-bold text-stone-900 tracking-wide">我們的籌備進度</h2>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200/60 space-y-6">
-                <!-- 進度條 -->
+            <div class="bg-white p-5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-stone-100 space-y-5">
                 <div>
-                    <div class="flex justify-between text-sm mb-2">
-                        <span class="font-medium text-stone-600">總體籌備進度</span>
-                        <span class="font-bold text-amber-700">85%</span>
+                    <div class="flex justify-between text-xs font-medium mb-2 text-stone-500">
+                        <span>總體籌備進度</span>
+                        <span class="text-amber-700 font-bold">85%</span>
                     </div>
-                    <div class="w-full bg-stone-100 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-amber-500 to-amber-700 h-3 rounded-full" style="width: 85%"></div>
+                    <div class="w-full bg-stone-100 rounded-full h-2">
+                        <div class="bg-amber-700 h-2 rounded-full" style="width: 85%"></div>
                     </div>
                 </div>
 
-                <hr class="border-stone-100">
-
-                <!-- 檢核項目列表 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex items-center space-x-3 bg-stone-50 p-3 rounded-lg">
-                        <span class="text-emerald-600 font-bold">✓</span>
-                        <span class="text-stone-700 line-through">婚宴場地訂定 (台北晶華酒店)</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-stone-50 p-3 rounded-lg">
-                        <span class="text-emerald-600 font-bold">✓</span>
-                        <span class="text-stone-700 line-through">婚紗攝影與挑選</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-stone-50 p-3 rounded-lg">
-                        <span class="text-emerald-600 font-bold">✓</span>
-                        <span class="text-stone-700 line-through">喜帖設計與發送</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-stone-50 p-3 rounded-lg">
-                        <span class="text-amber-600 font-bold">⏱</span>
-                        <span class="text-stone-700 font-medium">出席名單最終確認 (統計中)</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-stone-50 p-3 rounded-lg">
-                        <span class="text-stone-300 font-bold">○</span>
-                        <span class="text-stone-400">婚禮現場彩排 (預計前一週)</span>
-                    </div>
-                    <div class="flex items-center space-x-3 bg-stone-50 p-3 rounded-lg">
-                        <span class="text-stone-300 font-bold">○</span>
-                        <span class="text-stone-400">座位表最終定案</span>
-                    </div>
+                <div class="space-y-2.5 pt-2 border-t border-stone-50">
+                    <div class="flex items-center text-sm text-stone-600 bg-stone-50/60 px-3 py-2 rounded-xl"><span class="text-emerald-600 font-bold mr-3">✓</span> <span class="line-through text-stone-400">婚宴場地訂定</span></div>
+                    <div class="flex items-center text-sm text-stone-600 bg-stone-50/60 px-3 py-2 rounded-xl"><span class="text-emerald-600 font-bold mr-3">✓</span> <span class="line-through text-stone-400">婚紗攝影與挑選</span></div>
+                    <div class="flex items-center text-sm text-stone-600 bg-stone-50/60 px-3 py-2 rounded-xl"><span class="text-amber-600 font-bold mr-3">⏱</span> <span class="font-medium">出席名單最終確認 (統計中)</span></div>
+                    <div class="flex items-center text-sm text-stone-400 bg-stone-50/60 px-3 py-2 rounded-xl"><span class="text-stone-300 font-bold mr-3">○</span> <span>座位表最終定案</span></div>
                 </div>
             </div>
         </section>
 
-
-        <!-- Section 3: 注意事項 -->
-        <section id="notices" class="scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-stone-950 relative inline-block pb-3">
-                    賓客注意事項
-                    <span class="absolute bottom-0 left-1/4 right-1/4 h-[2px] bg-amber-600/60"></span>
-                </h2>
-                <p class="text-stone-500 mt-2 text-sm">Important Notice</p>
+        <section id="notices" class="scroll-mt-16">
+            <div class="mb-8">
+                <span class="text-xs font-bold text-amber-700 tracking-widest uppercase block mb-1">Notice</span>
+                <h2 class="text-2xl font-bold text-stone-900 tracking-wide">賓客注意事項</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- 卡片 1 -->
-                <div class="bg-amber-50/60 border border-amber-100 p-6 rounded-xl text-center">
-                    <div class="text-2xl mb-3">👔</div>
-                    <h3 class="font-bold text-lg mb-2 text-stone-900">Dress Code</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">建議著**美式輕正裝**或**半正式休閒裝**。色調建議避開純白（新娘色），歡迎大地色系或粉嫩色系。</p>
+            <div class="space-y-4">
+                <div class="bg-amber-50/40 border border-amber-100/60 p-5 rounded-2xl">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="text-lg">👔</span>
+                        <h3 class="font-bold text-stone-900 text-base">Dress Code 着裝建議</h3>
+                    </div>
+                    <p class="text-stone-600 text-sm leading-relaxed font-light">建議著<strong class="font-medium text-stone-800">美式輕正裝</strong>。色調建議避開純白（新娘專屬色），歡迎大地色系或粉嫩色系。</p>
                 </div>
-                <!-- 卡片 2 -->
-                <div class="bg-amber-50/60 border border-amber-100 p-6 rounded-xl text-center">
-                    <div class="text-2xl mb-3">🚗</div>
-                    <h3 class="font-bold text-lg mb-2 text-stone-900">交通與停車</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">飯店備有地下停車場，賓客可享免費停車 3 小時。若搭乘捷運，請於**中山站 3 號出口**步行約 5 分鐘。</p>
-                </div>
-                <!-- 卡片 3 -->
-                <div class="bg-amber-50/60 border border-amber-100 p-6 rounded-xl text-center">
-                    <div class="text-2xl mb-3">🎁</div>
-                    <h3 class="font-bold text-lg mb-2 text-stone-900">環保喜宴</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">為響應環保，本場婚宴不主動提供一次性打包餐具。若有素食或特殊過敏需求，請務必於表單中提前告知。</p>
+
+                <div class="bg-amber-50/40 border border-amber-100/60 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-lg">🚗</span>
+                            <h3 class="font-bold text-stone-900 text-base">交通與停車</h3>
+                        </div>
+                        <p class="text-stone-600 text-sm leading-relaxed font-light mb-4">飯店備有地下停車場，賓客享免費停車 3 小時。搭乘捷運至<strong class="font-medium text-stone-800">中山站 3 號出口</strong>步行約 5 分鐘。</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=台北晶華酒店" target="_blank" class="w-full text-center bg-amber-800 text-white text-sm py-3 rounded-xl hover:bg-amber-900 active:scale-[0.98] transition font-medium tracking-wide shadow-sm">
+                        🗺️ 開啟 Google 地圖導航
+                    </a>
                 </div>
             </div>
         </section>
 
-
-        <!-- Section 4: 婚禮紀錄 / 影像廊 -->
-        <section id="gallery" class="scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-stone-950 relative inline-block pb-3">
-                    婚禮紀錄 & 婚紗照
-                    <span class="absolute bottom-0 left-1/4 right-1/4 h-[2px] bg-amber-600/60"></span>
-                </h2>
-                <p class="text-stone-500 mt-2 text-sm">Our Gallery</p>
+        <section id="gallery" class="scroll-mt-16">
+            <div class="mb-8">
+                <span class="text-xs font-bold text-amber-700 tracking-widest uppercase block mb-1">Gallery</span>
+                <h2 class="text-2xl font-bold text-stone-900 tracking-wide">婚禮紀錄 & 婚紗</h2>
             </div>
 
-            <!-- 照片網格，可自由替換 src 網址 -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=600&auto=format&fit=crop" alt="婚紗照1">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop" alt="婚紗照2">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop" alt="婚紗照3">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=600&auto=format&fit=crop" alt="婚紗照4">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://images.unsplash.com/photo-1494709411176-a19ef361c1c6?q=80&w=600&auto=format&fit=crop" alt="婚紗照5">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://images.unsplash.com/photo-1519225495810-7512c696505a?q=80&w=600&auto=format&fit=crop" alt="婚紗照6">
-                </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="aspect-[3/4] overflow-hidden rounded-xl bg-stone-200 shadow-sm"><img class="w-full h-full object-cover" src="img1.jpg" alt="婚紗照1"></div>
+                <div class="aspect-[3/4] overflow-hidden rounded-xl bg-stone-200 shadow-sm"><img class="w-full h-full object-cover" src="img2.jpg" alt="婚紗照2"></div>
+                <div class="aspect-[3/4] overflow-hidden rounded-xl bg-stone-200 shadow-sm"><img class="w-full h-full object-cover" src="img3.jpg" alt="婚紗照3"></div>
+                <div class="aspect-[3/4] overflow-hidden rounded-xl bg-stone-200 shadow-sm"><img class="w-full h-full object-cover" src="img4.jpg" alt="婚紗照4"></div>
             </div>
         </section>
 
     </main>
 
-    <!-- 頁尾 -->
-    <footer class="bg-stone-900 text-stone-400 py-12 text-center text-sm border-t border-stone-800">
-        <p class="font-serif-eng italic tracking-widest text-lg text-amber-500 mb-2">Thank you for being part of our story.</p>
-        <p>&copy; 2026 新郎 & 新娘 婚禮籌備小組. All Rights Reserved.</p>
+    <footer class="bg-stone-900 text-stone-400 py-12 text-center text-xs border-t border-stone-800 px-6">
+        <p class="font-serif-eng italic tracking-widest text-base text-amber-500 mb-2">Thank you for being part of our story.</p>
+        <p class="font-light text-stone-500">&copy; 2026 新郎 & 新娘 婚禮籌備小組. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript: 倒數計時邏輯 -->
     <script>
-        // 設定婚禮目標日期（請更換為實際日期）
         const weddingDate = new Date("October 18, 2026 11:30:00").getTime();
-
         const timer = setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
-            // 計算天、時、分、秒
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // 渲染到網頁上（若小於 10 補 0）
             document.getElementById("days").innerText = days < 10 ? "0" + days : days;
             document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 
-            // 倒數結束時顯示
             if (distance < 0) {
                 clearInterval(timer);
-                document.getElementById("days").innerText = "00";
-                document.getElementById("hours").innerText = "00";
-                document.getElementById("minutes").innerText = "00";
-                document.getElementById("seconds").innerText = "00";
+                document.querySelectorAll("#days, #hours, #minutes, #seconds").forEach(el => el.innerText = "00");
             }
         }, 1000);
     </script>
