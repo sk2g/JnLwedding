@@ -7,10 +7,10 @@
     <!-- 引入 Tailwind CSS 進行快速美化 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts 引入優雅字體 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Noto Serif TC', serif;
         }
         .font-serif-eng {
             font-family: 'Playfair Display', serif;
@@ -20,7 +20,32 @@
 <body class="bg-stone-50 text-stone-800 antialiased">
 
     <!-- Hero Banner / 首頁視覺 -->
-    <header class="relative h-screen flex flex-col justify-center items-center text-center bg-cover bg-center px-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('Production/DSC00458.jpeg');">
+    <header id="hero-section" class="relative h-[92vh] w-full flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+        <div id="hero-bg" class="absolute inset-0 z-0 bg-center bg-cover will-change-transform" 
+             style="background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35)), url('Production/DSC00458.jpeg'); background-attachment: fixed;">
+        </div>
+
+        <div id="hero-content" class="text-white z-10 will-change-[opacity,transform]">
+            <h2 class="font-serif-eng italic text-2xl md:text-4xl mb-3 tracking-[0.2em] text-amber-100/90">Save the Date</h2>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-[0.15em] font-medium">宗翰 & 以瑄</h1>
+            <p class="text-base md:text-lg font-light tracking-[0.2em] text-stone-200">誠摯邀請您參與我們的幸福時刻</p>
+            <div class="mt-8 inline-block border border-white/60 backdrop-blur-sm bg-white/10 px-8 py-3 text-sm tracking-[0.2em] rounded-full font-medium">
+                2026 - 10 - 24
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-4 right-4 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex justify-around max-w-sm mx-auto border border-stone-100 z-20">
+            <div class="text-center w-16"><span id="days" class="block text-xl font-bold text-amber-800 font-serif-eng">00</span><span class="text-[10px] text-stone-400 font-medium tracking-wider">DAYS</span></div>
+            <div class="text-center w-16"><span id="hours" class="block text-xl font-bold text-amber-800 font-serif-eng">00</span><span class="text-[10px] text-stone-400 font-medium tracking-wider">HOURS</span></div>
+            <div class="text-center w-16"><span id="minutes" class="block text-xl font-bold text-amber-800 font-serif-eng">00</span><span class="text-[10px] text-stone-400 font-medium tracking-wider">MINS</span></div>
+            <div class="text-center w-16"><span id="seconds" class="block text-xl font-bold text-amber-800 font-serif-eng">00</span><span class="text-[10px] text-stone-400 font-medium tracking-wider">SECS</span></div>
+        </div>
+    </header>
+	
+	
+	
+	
+<!-- 	<header class="relative h-screen flex flex-col justify-center items-center text-center bg-cover bg-center px-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('Gemini_Generated_Image_cute01.png');">
         <div class="text-white">
             <h2 class="font-serif-eng italic text-3xl md:text-5xl mb-4 tracking-widest">Save the Date</h2>
             <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-wide">宗翰 & 以瑄</h1>
@@ -29,14 +54,14 @@
                 2026 - 10 - 24
             </div>
         </div>
-        <!-- 倒數計時 -->
+        倒數計時
         <div class="absolute bottom-12 bg-white/90 backdrop-blur-sm px-6 py-4 rounded-xl shadow-lg flex space-x-6 text-stone-800">
             <div class="text-center"><span id="days" class="block text-2xl font-bold text-amber-700">00</span><span class="text-xs text-stone-500">天</span></div>
             <div class="text-center"><span id="hours" class="block text-2xl font-bold text-amber-700">00</span><span class="text-xs text-stone-500">時</span></div>
             <div class="text-center"><span id="minutes" class="block text-2xl font-bold text-amber-700">00</span><span class="text-xs text-stone-500">分</span></div>
             <div class="text-center"><span id="seconds" class="block text-2xl font-bold text-amber-700">00</span><span class="text-xs text-stone-500">秒</span></div>
         </div>
-    </header>
+    </header> -->
 
     <!-- 導覽列 -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-stone-200">
@@ -203,22 +228,22 @@
             <!-- 照片網格，可自由替換 src 網址 -->
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczPisCk6dfmcHX39IG9lHboct1x6XDXggiOlAMJawxV-vwrozyFVOVK-jl1ZGjJpa8ofILIn98_03KNnrNQpHqeuQMv1D2i847HPTIYScCmb77FWSwVi2Vmn3pRfcTqpT6RTwL7142u3smOoQ4AP3pbi0A=w1546-h1031-s-no-gm?authuser=1" alt="婚紗照1">
+                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczORX_NXPkclB9n21oFXwXAp391KA1n6lkKN6uzri40HPEHFXFlWFs4vHuLPLdqBNd_mkVZvibBZXyS9NsZx_tv5A6plZR1LvbpHm-Jd4zswAci92W5OGcjn9gZ6q-F0eqkHd3ZXge1QqM7aNu4Hi0WIXg=w1547-h1031-s-no-gm?authuser=1" alt="婚紗照1">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczPal_9hWrve4CeSloFlHfgm3DozYEJK26J-edKoPk08zPgZhsrtu3ehWAJCIM_ERG8BdsU6HVa1Ygus03Tm-aINbI42rZnmNxn2z3o-hmtZkOvJHbHAJroOOuZRrGRdRLio1JYZO6YR_MZ-gDI3MhWtDg=w1546-h1031-s-no-gm?authuser=1" alt="婚紗照2">
+                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczOorWJ5zCZEAt-gayhNpwRjcLMwhJ6Vi0cp8gE-7JZJ6si3ABsnI7k4M9I22M5I38I44xpncxYCxRaHKWlFsyAzTV7vD5SW2PFyWILZXsb9ZVRTit98eMScyzxpS0imfyogH-DR_-0uYfwv_lclJdbsnA=w687-h1031-s-no-gm?authuser=1" alt="婚紗照2">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczPx5rFJlHOuUq-DhXtnaRv7by-bs731SbbkL8daaY5DEBPJZbQOjMLwAQeQXj7pDgNPT78tEgOWSpAwOH2NC80CQuUD0QqY0jazLFRcTEzDYCdmdl7fmapUbOxQQhmlQAFUjfHrhZrRF6-NwqzYSIHMWg=w1547-h1031-s-no-gm?authuser=1" alt="婚紗照3">
+                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczPisCk6dfmcHX39IG9lHboct1x6XDXggiOlAMJawxV-vwrozyFVOVK-jl1ZGjJpa8ofILIn98_03KNnrNQpHqeuQMv1D2i847HPTIYScCmb77FWSwVi2Vmn3pRfcTqpT6RTwL7142u3smOoQ4AP3pbi0A=w1546-h1031-s-no-gm?authuser=1" alt="婚紗照3">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczOorWJ5zCZEAt-gayhNpwRjcLMwhJ6Vi0cp8gE-7JZJ6si3ABsnI7k4M9I22M5I38I44xpncxYCxRaHKWlFsyAzTV7vD5SW2PFyWILZXsb9ZVRTit98eMScyzxpS0imfyogH-DR_-0uYfwv_lclJdbsnA=w687-h1031-s-no-gm?authuser=1" alt="婚紗照4">
+                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczPx5rFJlHOuUq-DhXtnaRv7by-bs731SbbkL8daaY5DEBPJZbQOjMLwAQeQXj7pDgNPT78tEgOWSpAwOH2NC80CQuUD0QqY0jazLFRcTEzDYCdmdl7fmapUbOxQQhmlQAFUjfHrhZrRF6-NwqzYSIHMWg=w1547-h1031-s-no-gm?authuser=1" alt="婚紗照4">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczOsXxQQtzCp-ONT4JVqcA-9owWmaBX3SJSWUlYwLFHb0zesoHZbA5t_syLbLuQ9TCT67m1WekRHk8cwkYrs1Z-xPviLCQW_U_LHPVSqPxA4Oz9aXLix1tXmnpciOz7qRXbnP4wBxn6NVBi0cbxzwoqBtA=w687-h1031-s-no-gm?authuser=1" alt="婚紗照5">
+                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczPJn3T8OoWwOM6vFC_5QyjP5JAPzmcjo4TCfDgnZrgcZ6yc5f5JTdggH908GhOQ-VuQQvhx254myI79NUhVRMM9VgZyJAkBje6wF7rRSZvhkxS_jqQ4zXQ8eAb5DzOyOKr5QotjL4Q-OzQSbdN7yQiLGw=w1547-h1031-s-no-gm?authuser=1" alt="婚紗照5">
                 </div>
                 <div class="overflow-hidden rounded-lg shadow-sm group">
-                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczPnK7jfifeuGFPAYcMZUtgdksCcdn75HN2pdvYAxH7EN3tYrE-YdxIQGuWc26esbiwAOZsTHGMtBQs9vPRzw7Bak2nXEBYEr2ePK_aXLFMF-JoleXd5NEo-dU5JtsHK6PLxp3ibNmS5YOE9SPzlM-Zg8g=w687-h1031-s-no-gm?authuser=1" alt="婚紗照6">
+                    <img class="h-auto max-w-full rounded-lg transform group-hover:scale-105 transition duration-500 object-cover" src="https://lh3.googleusercontent.com/pw/AP1GczOnXazn3M05ohrIRpbtrxfEeclUqD4xr39NiKvqeObH119iGr9Wqs4qlI3IuB2_frZ11K6kPSYuB6hc4gdWZqzSwTIhcOeW9zfvePmkY3H7PSvDv63VONFFkeuFTvVE96arhxckKaUoG1Od3PJbTqBvGg=w1547-h1031-s-no-gm?authuser=1" alt="婚紗照6">
                 </div>
             </div>
         </section>
@@ -232,9 +257,60 @@
     </footer>
 
     <!-- JavaScript: 倒數計時邏輯 -->
-    <script>
+	<script>
+        // 1. 倒數計時邏輯
+        const weddingDate = new Date("October 18, 2026 11:30:00").getTime();
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.querySelectorAll("#days, #hours, #minutes, #seconds").forEach(el => el.innerText = "00");
+            }
+        }, 1000);
+
+        // 2. 手機流暢度優化：滾動時圖片與文字「漸進式淡出」
+        const heroSection = document.getElementById('hero-section');
+        const heroBg = document.getElementById('hero-bg');
+        const heroContent = document.getElementById('hero-content');
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const heroHeight = heroSection.offsetHeight;
+            
+            // 計算目前滾動比例 (0 到 1)
+            let scrollFraction = scrollTop / heroHeight;
+            if (scrollFraction > 1) scrollFraction = 1;
+            if (scrollFraction < 0) scrollFraction = 0;
+
+            // 讓文字和背景隨著滾動變透明（1 逐漸減到 0）
+            const newOpacity = 1 - (scrollFraction * 1.3); // 乘 1.3 可以讓它提早一點點淡出完成，視覺更乾淨
+            heroContent.style.opacity = newOpacity < 0 ? 0 : newOpacity;
+            heroBg.style.opacity = newOpacity < 0 ? 0 : newOpacity;
+
+            // 微調文字往上飄移的精緻感（可選，增加層次感）
+            heroContent.style.transform = `translateY(${scrollTop * 0.25}px)`;
+        }, { passive: true }); // 使用 passive 確保手機滑動時性能極度流暢、完全不卡頓
+    </script>
+	
+	
+	
+	
+	
+<!--     <script>
         // 設定婚禮目標日期（請更換為實際日期）
-        const weddingDate = new Date("October 24, 2026 14:00:00").getTime();
+        const weddingDate = new Date("October 18, 2026 11:30:00").getTime();
 
         const timer = setInterval(function() {
             const now = new Date().getTime();
@@ -261,6 +337,6 @@
                 document.getElementById("seconds").innerText = "00";
             }
         }, 1000);
-    </script>
+    </script> -->
 </body>
 </html>
